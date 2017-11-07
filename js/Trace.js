@@ -10,8 +10,6 @@ function Trace(tool) {
 	//Variables
 	this.points         = [];
 	this.tool           = tool,
-	this.graphics       = new PIXI.Graphics();
-	this.graphicsCache  = new PIXI.Sprite();
 	this.isInCache      = false;
 	this.icons          = new PIXI.Container();
 	this.playButton     = new PIXI.Sprite.fromImage('img/tracePlay_'     + ((isTouch)?('large'):('small')) + '.png');
@@ -27,7 +25,7 @@ function Trace(tool) {
 	
 	//Synthèse
 	if(this.tool.sound)
-		this.synth      = new TraceSynth(this.id, this.tool);
+		this.synth = new TraceSynth(this.id, this.tool);
 	
 	//Paramètres
 	this.speedFactor   = 0.5;
@@ -56,6 +54,20 @@ function Trace(tool) {
 		else											thiss.select();
 	});
 	
+	//Mode de dessin
+	if(this.tool.drawing.brushMode != null) {
+		//Sprite
+		this.brush = PIXI.Sprite.fromImage("brushes/" + this.tool.drawing.brushMode)
+		this.pointIndexDraw = 0;
+		//Sortie
+		this.renderTexture = PIXI.RenderTexture.create(canvasContext.width, canvasContext.height);
+		this.graphicsCache = new PIXI.Sprite(this.renderTexture);
+	}
+	else {
+		this.graphics = new PIXI.Graphics();
+		this.graphicsCache  = new PIXI.Sprite();
+	}
+	
 	//Ajoute l'UI
 	this.icons.addChild(this.playButton);
 	this.icons.addChild(this.playingButton);
@@ -63,7 +75,8 @@ function Trace(tool) {
 	this.playButton    .visible = false;
 	this.playingButton .visible = false;
 	this.selectedButton.visible = false;
-	dessin.drawing.addChild(this.graphics);
+	if(this.graphics)
+		dessin.drawing.addChild(this.graphics);
 	dessin.drawing.addChild(this.graphicsCache);
 	dessin.drawing.addChild(this.icons);
 	
@@ -134,26 +147,45 @@ Trace.prototype.select = function(select) {
 }
 
 Trace.prototype.parameterChanged = function() {
-	if(this.graphicsCache)
+	if(this.graphicsCache) {
 		this.graphicsCache.alpha = this.playButton.alpha = this.playingButton.alpha = this.volumeFactor;
+		if(this.graphicsCache.alphaMax)
+			this.graphicsCache.alpha *= this.graphicsCache.alphaMax;
+	}
 }
 
 
 //Met le dessin en cache pour optimisations
 Trace.prototype.cache = function() {
-	if((this.points.length) && (this.graphics)) {
-		var minCoords = {x: dessin.papier.width, y: dessin.papier.height};
-		for(pointIndex = 0 ; pointIndex < this.points.length ; pointIndex++) {
-			minCoords.x = min(minCoords.x, this.points[pointIndex].x);
-			minCoords.y = min(minCoords.y, this.points[pointIndex].y);
+	if(this.points.length) {
+		if(this.graphics) {
+			var bounds = this.graphics.getBounds();
+			this.graphicsCache.texture = this.graphics.generateTexture(stage, 1/dpiScale);
+			dessin.drawing.removeChild(this.graphics);
 		}
-		var bounds = this.graphics.getBounds();
-		this.graphicsCache.texture = this.graphics.generateTexture(stage, 1/dpiScale);
-		dessin.drawing.removeChild(this.graphics);
+		else {
+			var bounds = {x: dessin.papier.width, y: dessin.papier.height, max: {x: 0, y: 0}};
+			for(pointIndex = 0 ; pointIndex < this.points.length ; pointIndex++) {
+				bounds.x = min(bounds.x, this.points[pointIndex].x);
+				bounds.y = min(bounds.y, this.points[pointIndex].y);
+				bounds.max.x = max(bounds.max.x, this.points[pointIndex].x);
+				bounds.max.y = max(bounds.max.y, this.points[pointIndex].y);
+			}
+			//var renderTexture = new PIXI.RenderTexture();
+			var factor = 100 * dpi;
+			bounds.x = constrain(bounds.x - factor, 0, dessin.papier.width);
+			bounds.y = constrain(bounds.y - factor, 0, dessin.papier.height);
+			bounds.max.x = constrain(bounds.max.x + factor, 0, dessin.papier.width-2);
+			bounds.max.y = constrain(bounds.max.y + factor, 0, dessin.papier.height-2);
+			this.graphicsCache.texture = new PIXI.Texture(this.graphicsCache.texture, new PIXI.Rectangle(bounds.x, bounds.y, bounds.max.x - bounds.x, bounds.max.y - bounds.y));
+		}
 		this.graphicsCache.x = bounds.x;
 		this.graphicsCache.y = bounds.y;
-		this.isInCache = true;
 	}
+	else {
+		this.remove();
+	}
+	this.isInCache = true;
 }
 
 //Ajoute un point
@@ -240,30 +272,63 @@ Trace.prototype.update = function(deltaTime) {
 	}
 	
 	//Sélection
-	if((this.isSelected) && (this.graphicsCache))
+	if((this.isSelected) && (this.graphicsCache)) {
 		this.graphicsCache.alpha = map(cos(7 * timeline.tContinu), -1,1, this.playButton.alpha*0.5,this.playButton.alpha);
+		if(this.graphicsCache.alphaMax)
+			this.graphicsCache.alpha *= this.graphicsCache.alphaMax;
+	}
 }
 
 //Dessine en temps réel
 Trace.prototype.draw = function() {
-	//Clear
-	this.graphics.clear();
+	if(this.tool.drawing.brushMode == null) {
+		//Clear
+		this.graphics.clear();
 
-	//Style de tracé
-	this.graphics.lineStyle(this.tool.drawing.width * dpi, "0x" + this.tool.drawing.color, this.tool.drawing.opacity);
+		//Style de tracé
+		this.graphics.lineStyle(this.tool.drawing.width * dpi, "0x" + this.tool.drawing.color, this.tool.drawing.opacity);
+	}
 
 	//Dessin du trait
 	if(this.points.length) {
-		this.graphics.moveTo(this.points[0].x, this.points[0].y);
-		var thiss = this;
-		$.each(this.points, function(pointIndex, point) {
-			thiss.graphics.lineTo(point.x, point.y);
-			var nearPoint = thiss.points[pointIndex-5];
-			if (nearPoint) {
-				thiss.graphics.moveTo(nearPoint.x, nearPoint.y);
-				thiss.graphics.lineTo(thiss.points[pointIndex].x, thiss.points[pointIndex].y);
+		if(this.tool.drawing.brushMode != null) {
+			var pointIndexDrawCpy = this.pointIndexDraw;
+			for(var pointIndex = pointIndexDrawCpy ; pointIndex < this.points.length ; pointIndex++) {
+				if(pointIndex < (this.points.length-1)) {
+					var distance = dist(this.points[pointIndex].x, this.points[pointIndex].y, 0, this.points[pointIndex+1].x, this.points[pointIndex+1].y, 0);
+					
+					//Equation de droite
+					for(var t = 0 ; t < 1 ; t += 1/(distance/2)) {
+						var pt = {
+							x: this.points[pointIndex].x * (1-t) + this.points[pointIndex+1].x * t,
+							y: this.points[pointIndex].y * (1-t) + this.points[pointIndex+1].y * t
+						};
+						//Test
+						this.brush.tint = "0x" + this.tool.drawing.color;
+						this.graphicsCache.alpha = this.graphicsCache.alphaMax = this.tool.drawing.opacity;
+						var factor = 10;// * constrain((distance/100), 0.5, 1.5);
+						this.brush.scale = new PIXI.Point(this.tool.drawing.width/factor, this.tool.drawing.width/factor);
+						this.brush.x = pt.x - 2*this.brush.scale.x;
+						this.brush.y = pt.y - 2*this.brush.scale.y;
+						canvasContext.render(this.brush, this.renderTexture, false);
+						this.graphicsCache.setTexture(this.renderTexture);
+					}
+					this.pointIndexDraw = pointIndex;
+				}
 			}
-		});
+		}
+		else {
+			this.graphics.moveTo(this.points[0].x, this.points[0].y);
+			for(var pointIndex = 0 ; pointIndex < this.points.length ; pointIndex++) {
+				var point = this.points[pointIndex];
+				this.graphics.lineTo(point.x, point.y);
+				var nearPoint = this.points[pointIndex-5];
+				if (nearPoint) {
+					this.graphics.moveTo(nearPoint.x, nearPoint.y);
+					this.graphics.lineTo(this.points[pointIndex].x, this.points[pointIndex].y);
+				}
+			}
+		}
 	}
 }
 

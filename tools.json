@@ -9,6 +9,7 @@
 					"name": "Martenot",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "f3b12b",
 						"opacity": 0.1,
 						"width": 15
@@ -43,6 +44,7 @@
 					"name":    "Theremin",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "c2c2c0",
 						"opacity": 0.2,
 						"width": 15
@@ -67,6 +69,7 @@
 					"name": "Ruban",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "d75e46",
 						"opacity": 0.1,
 						"width": 15
@@ -101,6 +104,7 @@
 					"name": "eBow",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "2bc2f3",
 						"opacity": 0.1,
 						"width": 15
@@ -135,6 +139,7 @@
 					"name": "Cordes frottées",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "a6d631",
 						"opacity": 0.2,
 						"width": 15
@@ -175,6 +180,7 @@
 					"toolIcon": 1,
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color":   "364f5b",
 						"opacity": 0.3,
 						"width":   5
@@ -199,6 +205,7 @@
 					"name": "Vielle à roue",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "d6d800",
 						"opacity": 0.3,
 						"width": 3
@@ -231,6 +238,7 @@
 					"name": "Bourdon",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "fb7501",
 						"opacity": 0.3,
 						"width": 5
@@ -263,6 +271,7 @@
 					"name": "Montagnes",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "7abfcb",
 						"opacity": 0.3,
 						"width": 5
@@ -299,6 +308,7 @@
 					"toolIcon": 6,
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color":   "7f4638",
 						"opacity": 0.3,
 						"width":   5
@@ -323,6 +333,7 @@
 					"name":    "Phonème",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color": "0098ff",
 						"opacity": 0.3,
 						"width":   5
@@ -354,6 +365,7 @@
 					"name":    "Synthé 1",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color":   "CCCCCC",
 						"opacity": 0.27,
 						"width":   1
@@ -378,6 +390,7 @@
 					"name":    "Synthé 2",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color":   "AAAAAA",
 						"opacity": 0.25,
 						"width":   1
@@ -402,6 +415,7 @@
 					"name":    "Synthé 3",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color":   "888888",
 						"opacity": 0.23,
 						"width":   1
@@ -426,6 +440,7 @@
 					"name":    "Synthé 4",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": null,
 						"color":   "555555",
 						"opacity": 0.21,
 						"width":   1
@@ -449,7 +464,7 @@
 			]
 		},
 		{
-			"name":	"Pinceau fin",
+			"name":	"Qalam",
 			"toolIcon": 4,
 			"isMobile": true,
 			"tools": [
@@ -457,9 +472,10 @@
 					"name": "Orgue 1",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color": "00ba98",
 						"opacity": 0.5,
-						"width": 10
+						"width": 5
 					},
 					"sound": {
 						"wavetable": "Organ3",
@@ -489,9 +505,10 @@
 					"name": "Orgue 2",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color": "7900de",
 						"opacity": 0.5,
-						"width": 10
+						"width": 5
 					},
 					"sound": {
 						"wavetable": "TwelveOpTines",
@@ -521,9 +538,10 @@
 					"name": "Orgue 3",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color": "feea00",
 						"opacity": 0.2,
-						"width":   10
+						"width":   5
 					},
 					"sound": {
 						"wavetable": "Full2",
@@ -560,9 +578,10 @@
 					"name":    "Dynamique",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color":   "000000",
 						"opacity": 1,
-						"width":   0.5
+						"width":   2
 					},
 					"sound": {
 						"wavetable": "DynaEPBright",
@@ -584,9 +603,10 @@
 					"name": "Noise",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color": "ff3b77",
 						"opacity": 1,
-						"width": 0.5
+						"width": 2
 					},
 					"sound": {
 						"wavetable": "Noise",
@@ -616,9 +636,10 @@
 					"name":    "Buzzy",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color":   "fb7501",
 						"opacity": 1,
-						"width":   0.5
+						"width":   2
 					},
 					"sound": {
 						"wavetable": "Buzzy1",
@@ -640,9 +661,10 @@
 					"name":    "Dents de scie",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color":   "adc4cf",
 						"opacity": 1,
-						"width":   0.5
+						"width":   2
 					},
 					"sound": {
 						"wavetable": "WarmSaw",
@@ -664,9 +686,10 @@
 					"name": "Carré",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color": "008900",
 						"opacity": 1,
-						"width": 0.5
+						"width": 2
 					},
 					"sound": {
 						"wavetable": "WarmSquare",
@@ -696,9 +719,10 @@
 					"name":    "Triangle",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png",
 						"color":   "0e009a",
 						"opacity": 1,
-						"width":   0.5
+						"width":   2
 					},
 					"sound": {
 						"wavetable": "WarmTriangle",
@@ -720,9 +744,10 @@
 					"name": "Square",
 					"type": "synthesis",
 					"drawing": {
+						"brushMode": "qalam.png"	,
 						"color":   "ae1600",
 						"opacity": 1,
-						"width":   0.5
+						"width":   2
 					},
 					"sound": {
 						"wavetable": "TB303Square",
@@ -759,9 +784,10 @@
 					"name":    "Feu",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "ff0000",
 						"opacity": 0.09,
-						"width":   25
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Feu",
@@ -774,9 +800,10 @@
 					"name":    "Forêt",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "78c834",
-						"opacity": 0.05,
-						"width":   25
+						"opacity": 0.2,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Foret",
@@ -789,9 +816,10 @@
 					"name":    "Oiseau",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "9cd5e1",
-						"opacity": 0.05,
-						"width":   25
+						"opacity": 0.2,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Oiseau",
@@ -804,9 +832,10 @@
 					"name":    "Pluie",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "687e98",
-						"opacity": 0.05,
-						"width":   25
+						"opacity": 0.2,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Pluie",
@@ -819,9 +848,10 @@
 					"name":    "Tonnerre",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "394263",
-						"opacity": 0.09,
-						"width":   25
+						"opacity": 0.2,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Tonnerre",
@@ -834,9 +864,10 @@
 					"name":    "Vagues",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "59b8f9",
-						"opacity": 0.05,
-						"width":   25
+						"opacity": 0.2,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Vague_Mer",
@@ -849,9 +880,10 @@
 					"name":    "Vent léger",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "cbcbcb",
-						"opacity": 0.05,
-						"width":   25
+						"opacity": 0.4,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Vent_light",
@@ -864,9 +896,10 @@
 					"name":    "Vents",
 					"type":    "synthesis",
 					"drawing": {
+						"brushMode": "round.png",
 						"color":   "364f5b",
-						"opacity": 0.05,
-						"width":   25
+						"opacity": 0.2,
+						"width":   10
 					},
 					"sound": {
 						"wavefile": "Vent",
@@ -887,6 +920,7 @@
 					"name":    "DMX Rouge",
 					"type":    "dmx-r",
 					"drawing": {
+						"brushMode": null,
 						"color":   "FF0000",
 						"opacity": 0.6,
 						"width":   1
@@ -896,6 +930,7 @@
 					"name":    "DMX Vert",
 					"type":    "dmx-g",
 					"drawing": {
+						"brushMode": null,
 						"color":   "00FF00",
 						"opacity": 0.6,
 						"width":   1
@@ -905,6 +940,7 @@
 					"name":    "DMX bleu",
 					"type":    "dmx-b",
 					"drawing": {
+						"brushMode": null,
 						"color":   "0000FF",
 						"opacity": 0.6,
 						"width":   1

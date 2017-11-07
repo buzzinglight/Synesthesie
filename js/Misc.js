@@ -109,6 +109,12 @@ function map(value, low1, high1, low2, high2) {
 	return range(norm(value, low1, high1), low2, high2);
 }
 
+function linexp(value, factor) {
+	if((factor == undefined) || (factor == 0))
+		return value;
+	else
+		return (exp(factor * value - factor) - exp(-factor)) / (1 - exp(-factor));
+}
 
 function getRangeExp(slider) {
 	var facteur = parseFloat(slider.attr("exp"));
