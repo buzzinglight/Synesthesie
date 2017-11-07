@@ -1,0 +1,916 @@
+{
+	"tools": [
+		{
+			"name":	"Surligneurs",
+			"toolIcon": 2,
+			"isMobile": true,
+			"tools": [
+				{
+					"name": "Martenot",
+					"type": "synthesis",
+					"drawing": {
+						"color": "f3b12b",
+						"opacity": 0.1,
+						"width": 15
+					},
+					"sound": {
+						"wavetable": "BassAmp360",
+						"attackrelease": [
+							30,
+							30
+						],
+						"gain": 1,
+						"reverb": 0.75,
+						"vibrato": {
+							"intensity": 0.1,
+							"depth": 30
+						},
+						"oscillators": {
+							"gain": [
+								1,
+								0.3
+							],
+							"vibrato": [
+								1,
+								1
+							],
+							"detune": 0.005
+						}
+					},
+					"id": 1
+				},
+				{
+					"name":    "Theremin",
+					"type":    "synthesis",
+					"drawing": {
+						"color": "c2c2c0",
+						"opacity": 0.2,
+						"width": 15
+					},
+					"sound": {
+						"wavetable": "Celeste",
+						"attackrelease": [20, 20],
+						"gain": 1,
+						"reverb": 0.75,
+						"vibrato": {
+							"intensity": 0.2,
+							"depth": 	 40
+						},
+						"oscillators": {
+							"gain": [1, 0.3],
+							"vibrato": [1, 1],
+							"detune": 0.015
+						}
+					}
+				},
+				{
+					"name": "Ruban",
+					"type": "synthesis",
+					"drawing": {
+						"color": "d75e46",
+						"opacity": 0.1,
+						"width": 15
+					},
+					"sound": {
+						"wavetable": "BassFuzz2",
+						"attackrelease": [
+							60,
+							20
+						],
+						"gain": 1,
+						"reverb": 0.6,
+						"vibrato": {
+							"intensity": 0.001,
+							"depth": 5
+						},
+						"oscillators": {
+							"gain": [
+								1,
+								0.1
+							],
+							"vibrato": [
+								1,
+								1
+							],
+							"detune": 0.005
+						}
+					},
+					"id": 4
+				},
+				{
+					"name": "eBow",
+					"type": "synthesis",
+					"drawing": {
+						"color": "2bc2f3",
+						"opacity": 0.1,
+						"width": 15
+					},
+					"sound": {
+						"wavetable": "BassSubDub2",
+						"attackrelease": [
+							30,
+							30
+						],
+						"gain": 1,
+						"reverb": 0.9,
+						"vibrato": {
+							"intensity": 0.01,
+							"depth": 40
+						},
+						"oscillators": {
+							"gain": [
+								1,
+								0.3
+							],
+							"vibrato": [
+								1,
+								1
+							],
+							"detune": 0.005
+						}
+					},
+					"id": 6
+				},
+				{
+					"name": "Cordes frottées",
+					"type": "synthesis",
+					"drawing": {
+						"color": "a6d631",
+						"opacity": 0.2,
+						"width": 15
+					},
+					"sound": {
+						"wavetable": "ChorusStrings",
+						"attackrelease": [
+							70,
+							70
+						],
+						"gain": 1,
+						"reverb": 0.8,
+						"vibrato": {
+							"intensity": 0.001,
+							"depth": 20
+						},
+						"oscillators": {
+							"gain": [
+								1
+							],
+							"vibrato": [
+								1
+							],
+							"detune": 0
+						}
+					},
+					"id": 9
+				}
+			]
+		},
+		{
+			"name":	"Feutres",
+			"toolIcon": 5,
+			"isMobile": true,
+			"tools": [
+				{
+					"name":    "Triangle",
+					"toolIcon": 1,
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "364f5b",
+						"opacity": 0.3,
+						"width":   5
+					},
+					"sound": {
+						"wavetable": "Saw",
+						"attackrelease": [5, 20],
+						"gain": 0.7,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 5
+						},
+						"oscillators": {
+							"gain": [1, 1],
+							"vibrato": [0, 1],
+							"detune": 1
+						}
+					}
+				},
+				{
+					"name": "Vielle à roue",
+					"type": "synthesis",
+					"drawing": {
+						"color": "d6d800",
+						"opacity": 0.3,
+						"width": 3
+					},
+					"sound": {
+						"wavetable": "Brass",
+						"attackrelease": [
+							10,
+							20
+						],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 5
+						},
+						"oscillators": {
+							"gain": [
+								1, 0.4
+							],
+							"vibrato": [
+								0, 1
+							],
+							"detune": 0.01
+						}
+					},
+					"id": 1
+				},
+				{
+					"name": "Bourdon",
+					"type": "synthesis",
+					"drawing": {
+						"color": "fb7501",
+						"opacity": 0.3,
+						"width": 5
+					},
+					"sound": {
+						"wavetable": "Ethnic33",
+						"attackrelease": [
+							50,
+							50
+						],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.001,
+							"depth": 2
+						},
+						"oscillators": {
+							"gain": [
+								1
+							],
+							"vibrato": [
+								1
+							],
+							"detune": 0
+						}
+					},
+					"id": 3
+				},
+				{
+					"name": "Montagnes",
+					"type": "synthesis",
+					"drawing": {
+						"color": "7abfcb",
+						"opacity": 0.3,
+						"width": 5
+					},
+					"sound": {
+						"wavetable": "BritBlues",
+						"attackrelease": [
+							30,
+							30
+						],
+						"gain": 1,
+						"reverb": 0.7,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 5
+						},
+						"oscillators": {
+							"gain": [
+								1,
+								0.8,
+								0.6,
+								0.4
+							],
+							"vibrato": [
+								0, 0, 0, 0
+							],
+							"detune": 0
+						}
+					},
+					"id": 5
+				},
+				{
+					"name":    "Dents<br/>de scie",
+					"toolIcon": 6,
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "7f4638",
+						"opacity": 0.3,
+						"width":   5
+					},
+					"sound": {
+						"wavetable": "Saw",
+						"attackrelease": [5, 20],
+						"gain": 0.8,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.01,
+							"depth": 	 20
+						},
+						"oscillators": {
+							"gain": [1, 0.8, 0.6, 0.4],
+							"vibrato": [0, 1, 1, 1],
+							"detune": 0.01
+						}
+					}
+				},
+				{
+					"name":    "Phonème",
+					"type":    "synthesis",
+					"drawing": {
+						"color": "0098ff",
+						"opacity": 0.3,
+						"width":   5
+					},
+					"sound": {
+						"wavetable": "PhonemeO",
+						"attackrelease": [5, 20],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.01,
+							"depth": 	 20
+						},
+						"oscillators": {
+							"gain": [1, 0.6, 0.3, 1],
+							"vibrato": [1, 1, 1, 1],
+							"detune": 1
+						}
+					}
+				}
+			]
+		},
+		{
+			"name":	"Crayons",
+			"toolIcon": 1,
+			"isMobile": true,
+			"tools": [
+				{
+					"name":    "Synthé 1",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "CCCCCC",
+						"opacity": 0.27,
+						"width":   1
+					},
+					"sound": {
+						"wavetable": "DynaEPMed",
+						"attackrelease": [40, 20],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 5
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [1],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name":    "Synthé 2",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "AAAAAA",
+						"opacity": 0.25,
+						"width":   1
+					},
+					"sound": {
+						"wavetable": "MklHard",
+						"attackrelease": [30, 20],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 7
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [1],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name":    "Synthé 3",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "888888",
+						"opacity": 0.23,
+						"width":   1
+					},
+					"sound": {
+						"wavetable": "Wurlitzer2",
+						"attackrelease": [30, 20],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 9
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [1],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name":    "Synthé 4",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "555555",
+						"opacity": 0.21,
+						"width":   1
+					},
+					"sound": {
+						"wavetable": "TwelveStringGuitar1",
+						"attackrelease": [30, 20],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 11
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [1],
+							"detune": 0
+						}
+					}
+				}
+			]
+		},
+		{
+			"name":	"Pinceau fin",
+			"toolIcon": 4,
+			"isMobile": true,
+			"tools": [
+				{
+					"name": "Orgue 1",
+					"type": "synthesis",
+					"drawing": {
+						"color": "00ba98",
+						"opacity": 0.5,
+						"width": 10
+					},
+					"sound": {
+						"wavetable": "Organ3",
+						"attackrelease": [
+							10,
+							20
+						],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.0015,
+							"depth": 20
+						},
+						"oscillators": {
+							"gain": [
+								1
+							],
+							"vibrato": [
+								1
+							],
+							"detune": 0
+						}
+					},
+					"id": 2
+				},
+				{
+					"name": "Orgue 2",
+					"type": "synthesis",
+					"drawing": {
+						"color": "7900de",
+						"opacity": 0.5,
+						"width": 10
+					},
+					"sound": {
+						"wavetable": "TwelveOpTines",
+						"attackrelease": [
+							10,
+							20
+						],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.02,
+							"depth": 40
+						},
+						"oscillators": {
+							"gain": [
+								1
+							],
+							"vibrato": [
+								1
+							],
+							"detune": 0
+						}
+					},
+					"id": 4
+				},
+				{
+					"name": "Orgue 3",
+					"type": "synthesis",
+					"drawing": {
+						"color": "feea00",
+						"opacity": 0.2,
+						"width":   10
+					},
+					"sound": {
+						"wavetable": "Full2",
+						"attackrelease": [
+							40,
+							20
+						],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth":     3
+						},
+						"oscillators": {
+							"gain": [
+								1, 0.4
+							],
+							"vibrato": [
+								0, 1
+							],
+							"detune": 0.5
+						}
+					},
+					"id": 4
+				}
+			]
+		},
+		{
+			"name":	"Plume",
+			"toolIcon": 3,
+			"isMobile": true,
+			"tools": [
+				{
+					"name":    "Dynamique",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "000000",
+						"opacity": 1,
+						"width":   0.5
+					},
+					"sound": {
+						"wavetable": "DynaEPBright",
+						"attackrelease": [40, 5],
+						"gain": 1.5,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 5
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [0],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name": "Noise",
+					"type": "synthesis",
+					"drawing": {
+						"color": "ff3b77",
+						"opacity": 1,
+						"width": 0.5
+					},
+					"sound": {
+						"wavetable": "Noise",
+						"attackrelease": [
+							40,
+							5
+						],
+						"gain": 0.3,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.05,
+							"depth": 4
+						},
+						"oscillators": {
+							"gain": [
+								1,0.5
+							],
+							"vibrato": [
+								0,1
+							],
+							"detune": 0
+						}
+					},
+					"id": 2
+				},
+				{
+					"name":    "Buzzy",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "fb7501",
+						"opacity": 1,
+						"width":   0.5
+					},
+					"sound": {
+						"wavetable": "Buzzy1",
+						"attackrelease": [40, 5],
+						"gain": 1.1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 5
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [0],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name":    "Dents de scie",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "adc4cf",
+						"opacity": 1,
+						"width":   0.5
+					},
+					"sound": {
+						"wavetable": "WarmSaw",
+						"attackrelease": [40, 5],
+						"gain": 2,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 5
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [0],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name": "Carré",
+					"type": "synthesis",
+					"drawing": {
+						"color": "008900",
+						"opacity": 1,
+						"width": 0.5
+					},
+					"sound": {
+						"wavetable": "WarmSquare",
+						"attackrelease": [
+							20,
+							5
+						],
+						"gain": 2,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.01,
+							"depth": 40
+						},
+						"oscillators": {
+							"gain": [
+								1,0.3
+							],
+							"vibrato": [
+								0,1
+							],
+							"detune": 0.005
+						}
+					},
+					"id": 6
+				},
+				{
+					"name":    "Triangle",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "0e009a",
+						"opacity": 1,
+						"width":   0.5
+					},
+					"sound": {
+						"wavetable": "WarmTriangle",
+						"attackrelease": [40, 5],
+						"gain": 1,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 	 0.5
+						},
+						"oscillators": {
+							"gain": [1],
+							"vibrato": [1],
+							"detune": 0
+						}
+					}
+				},
+				{
+					"name": "Square",
+					"type": "synthesis",
+					"drawing": {
+						"color":   "ae1600",
+						"opacity": 1,
+						"width":   0.5
+					},
+					"sound": {
+						"wavetable": "TB303Square",
+						"attackrelease": [
+							40,
+							5
+						],
+						"gain": 2,
+						"reverb": 0.5,
+						"vibrato": {
+							"intensity": 0.005,
+							"depth": 2
+						},
+						"oscillators": {
+							"gain": [
+								1,0.5
+							],
+							"vibrato": [
+								0,1
+							],
+							"detune": 1
+						}
+					},
+					"id": 5
+				}
+			]
+		},
+		{
+			"name":	"Pinceau",
+			"toolIcon": 6,
+			"isMobile": true,
+			"tools": [
+				{
+					"name":    "Feu",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "ff0000",
+						"opacity": 0.09,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Feu",
+						"attackrelease": [100, 50],
+						"gain": 1.25,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Forêt",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "78c834",
+						"opacity": 0.05,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Foret",
+						"attackrelease": [100, 50],
+						"gain": 2,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Oiseau",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "9cd5e1",
+						"opacity": 0.05,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Oiseau",
+						"attackrelease": [100, 50],
+						"gain": 1.5,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Pluie",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "687e98",
+						"opacity": 0.05,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Pluie",
+						"attackrelease": [100, 50],
+						"gain": 2,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Tonnerre",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "394263",
+						"opacity": 0.09,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Tonnerre",
+						"attackrelease": [100, 50],
+						"gain": 3,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Vagues",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "59b8f9",
+						"opacity": 0.05,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Vague_Mer",
+						"attackrelease": [100, 50],
+						"gain": 1.75,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Vent léger",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "cbcbcb",
+						"opacity": 0.05,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Vent_light",
+						"attackrelease": [100, 50],
+						"gain": 4,
+						"reverb": 0
+					}
+				},
+				{
+					"name":    "Vents",
+					"type":    "synthesis",
+					"drawing": {
+						"color":   "364f5b",
+						"opacity": 0.05,
+						"width":   25
+					},
+					"sound": {
+						"wavefile": "Vent",
+						"attackrelease": [100, 50],
+						"gain": 1.5,
+						"reverb": 0
+					}
+				}
+			]
+		},
+		{
+			"name":	"DMX",
+			"toolIcon": 9,
+			"isMobile": true,
+			"isOnline": true,
+			"tools": [
+				{
+					"name":    "DMX Rouge",
+					"type":    "dmx-r",
+					"drawing": {
+						"color":   "FF0000",
+						"opacity": 0.6,
+						"width":   1
+					}
+				},
+				{
+					"name":    "DMX Vert",
+					"type":    "dmx-g",
+					"drawing": {
+						"color":   "00FF00",
+						"opacity": 0.6,
+						"width":   1
+					}
+				},
+				{
+					"name":    "DMX bleu",
+					"type":    "dmx-b",
+					"drawing": {
+						"color":   "0000FF",
+						"opacity": 0.6,
+						"width":   1
+					}
+				}
+			]
+		}
+	]
+}

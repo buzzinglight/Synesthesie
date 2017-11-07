@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Language" content="fr">
+	
+	<meta name="language"    content="fr">
+	<meta name="designer"    content="Buzzing Light">  
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	
+	<title>Synesthésie</title>
+
+	<link rel="apple-touch-icon" href="/favicons/favicon.png" />
+	<link rel="shortcut icon"    href="/favicons/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="font/Avenir_45.css" />
+	<link rel="stylesheet" type="text/css" href="font/Avenir_65.css" />
+	<link rel="stylesheet" type="text/css" href="css/theme.css" />
+	
+	<script language="javascript" type='text/javascript' src="js/libs/jquery.js"></script>
+	<script language="javascript" type='text/javascript' src="js/libs/moment.js"></script>
+	<script language="javascript" type='text/javascript' src="js/libs/tinycolor.js"></script>
+	<script language="javascript" type='text/javascript' src="js/libs/reverb.js"></script>
+	<script language="javascript" type='text/javascript' src="js/libs/pixi.min.js"></script>
+	<script language="javascript" type='text/javascript' src="js/libs/stereo-panner-shim.min.js"></script>
+
+	<script language="javascript" type='text/javascript' src="js/Misc.js"></script>
+	<script language="javascript" type='text/javascript' src="js/Network.js"></script>
+	<script language="javascript" type='text/javascript' src="js/Timeline.js"></script>
+	<script language="javascript" type='text/javascript' src="js/TraceSynth.js"></script>
+	<script language="javascript" type='text/javascript' src="js/Trace.js"></script>
+	<script language="javascript" type='text/javascript' src="js/Dessin.js"></script>
+	<script language="javascript" type='text/javascript' src="js/Waveform.js"></script>
+	<script language="javascript" type='text/javascript' src="js/synth.js"></script>
+	<script language="javascript" type='text/javascript' src="js/drawing.js"></script>
+	<script language="javascript" type='text/javascript' src="js/app.js"></script>
+	<script language="javascript" type='text/javascript'>
+
+	</script>
+</head>
+<body>
+	<div id="experience">
+		<div id='toolbarContainer'>
+			<div class='toolBar' id='toolsFile'>
+				<div class="toolButton toolButtonSimple disabled" title="Nouveau dessin>" action="clear">
+					<div class="toolicon"><img draggable="false" base="img/button_clear_%1.png"></div>
+					<div class='toolname'>Nouveau<br/>dessin</div>
+				</div>
+				<div class="toolButton toolButtonSimple disabled" title="Partager le dessin" action="share">
+					<div class="toolicon"><img draggable="false" base="img/button_share_%1.png"></div>
+					<div class='toolname'>Partager</div>
+				</div>
+			</div>
+			<div class='toolBar' id='toolsTransport'>
+				<div class="toolButton toolButtonSimple disabled" title="Rembobiner" action="ff">
+					<div class="toolicon"><img draggable="false" base="img/button_ff_%1.png"></div>
+					<div class='toolname'>Retour<br/>à zéro</div>
+				</div>
+				<div class="toolButton" title="Play/Pause" action="playPause">
+					<div class="toolicon"><img draggable="false" base="img/button_play_%1.png"></div>
+					<div class='toolname'></div>
+				</div>
+				<div class="toolButton toolButtonToggle mini" title="Lecture en boucle" action="playInLoop">
+					<div class="toolicon"><img draggable="false" base="img/button_loop_%1.png"></div>
+					<div class='toolname'></div>
+				</div>
+				<div class="toolSlider" title="Vitesse de lecture" id="speedRange" action="speedFactor">
+					<input type="range" value="10000" min="-100000" max="100000" exp="5" seuil="40000" step="1"/>
+					<div class='toolname'></div>
+				</div>
+			</div>
+			<div class='toolBar' id='toolsDrawing'>
+			</div>
+			<div class='toolBar' id='toolsDisplay'>
+				<!--
+				<div class="toolButton toolButtonToggle" title="Affiche la forme d’onde" action="waveform">
+					<div class="toolicon"><img draggable="false" base="img/button_wave_%1.png"></div>
+					<div class='toolname'>Forme d’onde</div>
+				</div>
+				-->
+				<div class="toolButton toolButtonToggle" title="Affiche l’oscilloscope" action="oscilloscope">
+					<div class="toolicon"><img draggable="false" base="img/button_wave_%1.png"></div>
+					<div class='toolname'>Oscillo.</div>
+				</div>
+				<div class="toolButton toolButtonToggle" title="Éditer la synthèse" action="synthese">
+					<div class="toolicon"><img draggable="false" base="img/button_mixer_%1.png"></div>
+					<div class='toolname'>Synthèse</div>
+				</div>
+				<div class="toolButton toolButtonToggle inactive" title="Lien avec IanniX" action="sockets">
+					<div class="toolicon"><img draggable="false" base="img/button_iannix_%1.png"></div>
+					<div class='toolname'>Connecter à IanniX</div>
+				</div>
+			</div>
+			<div class='toolBar' id='master'>
+				<div class="toolSlider" title="Volume master" id="masterRange" action="masterFactor">
+					<input type="range" value="1" min="0" max="100000" exp="-1" seuil="100000" step="1"/>
+					<div class='toolname'></div>
+				</div>
+				<div id='tuner'>
+					<div class='note'>&nbsp;</div>
+					<div class='freq'>&nbsp;</div>
+					<div class='voices'></div>
+				</div>
+			</div>
+		</div>
+		<div id='toolbarFloatingContainer'>
+			<div class='toolBar' id='toolsDrawingColor'>
+			</div>
+		</div>
+	
+		<div id='canvasContainer'></div>
+		<div id='inspecteur'>
+			<div class="toolTitle">
+				<div class="title">Édition</div>
+				<div class="close">×</div>
+			</div>
+			<div class="toolSlider" title="Vitesse de la courbe" id="traceSpeedRange" action="speedFactor">
+				<input type="range" value="10000" min="0" max="100000" exp="3" seuil="40000" step="1"/>
+				<div class='toolname'></div>
+				Durée de&nbsp;<input type="number" value="1" min="0" max="60" step="0.1"/>&nbsp;seconde(s)
+			</div>
+			<div class="toolSlider" title="Volume de la courbe" id="traceVolumeRange" action="volumeFactor">
+				<input type="range" value="1" min="0" max="100000" exp="-1" seuil="100000" step="1"/>
+				<div class='toolname'></div>
+			</div>
+			<div class="toolSlider" title="Panning de la courbe" id="tracePanningRange" action="panningFactor">
+				<input type="range" value="1" min="0" max="100000" exp="0" seuil="100000" step="1"/>
+				<div class='toolname'></div>
+			</div>
+			<div class="toolCheck" title="Lecture de la courbe" action="playingMode">
+				<input type="checkbox" id="tracePlayingMode"/>
+				<label class='toolname' for="tracePlayingMode">Lire la courbe en suivant le "geste" du tracé</label>
+			</div>
+			<br/><br/><hr/>
+			<div class="center">
+				<div class="toolButton toolButtonSimple" title="Effacer la courbe" action="erase">
+					<div class="toolicon"><img draggable="false" base="img/brushes/brush0_%1.png"></div>
+					<div class='toolname'>Effacer la courbe</div>
+				</div>
+			</div>
+		</div>
+		<div id="oscilloscope">
+			<div class="toolTitle">
+				<div class="title">Oscilloscope</div>
+				<div class="close" action="oscilloscope">×</div>
+			</div>
+			<canvas></canvas>
+		</div>
+
+		<div id='synthese'>
+			<div class="toolTitle">
+				<div class="title">Synthèse</div>
+				<div class="close" action="synthese">×</div>
+			</div><br/>
+			<select id="syntheseChoice">
+				<option>Tables d’ondes</option>
+			</select><br/><br/>
+			<textarea id='syntheseJSON'></textarea>
+			<div id="syntheseJSONError"></div>
+		</div>
+	
+		<div id='intro'>
+			<h1>Synesthésie</h1>
+			<div>
+				<h2>Chargement en cours…<br/>Merci de patienter.</h2>
+				<img src='img/headphones.png'/>
+				<h3></h3>
+			</div>
+		</div>
+	
+		<div id='share'>
+			<div class="toolTitle">
+				<div class="title">Partage</div>
+				<div class="close">×</div>
+			</div>
+			<img id='shareImg' src=''/>
+			<img id="shareQrcode" src=''/>
+			<div id="shareUrl"></div>
+		</div>
+	</div>
+	<div id='orientation'>
+		<img draggable="false" src="img/orientation.png">
+	</div>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-88872243-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</body>
+</html>
+
+
