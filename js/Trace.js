@@ -306,10 +306,11 @@ Trace.prototype.draw = function() {
 						//Test
 						this.brush.tint = "0x" + this.tool.drawing.color;
 						this.graphicsCache.alpha = this.graphicsCache.alphaMax = this.tool.drawing.opacity;
+
 						var factor = 10;// * constrain((distance/100), 0.5, 1.5);
 						this.brush.scale = new PIXI.Point(this.tool.drawing.width/factor, this.tool.drawing.width/factor);
-						this.brush.x = pt.x - 2*this.brush.scale.x;
-						this.brush.y = pt.y - 2*this.brush.scale.y;
+						this.brush.x = pt.x - this.brush.width/2;// - 2*this.brush.scale.x;
+						this.brush.y = pt.y - this.brush.height/2;// - 2*this.brush.scale.y;
 						canvasContext.render(this.brush, this.renderTexture, false);
 						this.graphicsCache.setTexture(this.renderTexture);
 					}
